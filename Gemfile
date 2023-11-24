@@ -71,3 +71,4 @@ gem 'rspec-rails', group: [:test]
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'faker'
+gem "cloudinary"
