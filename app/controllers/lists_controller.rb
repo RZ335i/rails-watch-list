@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: %i[show create]
+  before_action :set_list, only: %i[show]
 
   def index
     @lists = List.all
