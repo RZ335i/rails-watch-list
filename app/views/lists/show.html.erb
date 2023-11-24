@@ -1,2 +1,25 @@
-<h2>Test</h2>
-<h1><%= @list.name %></h1>
+<h1><%= @list.name.capitalize %></h1>
+
+<%  @list.movies.each do |movie| %>
+
+<% end %>
+
+<% @bookmarks.each do |bookmark| %>
+  <%= bookmark.movie.title  %>
+  <%= image_tag(bookmark.movie.poster_url) %>
+  <%= bookmark.movie.overview %>
+  <%= bookmark.movie.rating %>
+  <%= bookmark.comment %>
+  <%= link_to "Supprimer mon bookmark", bookmarks_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<% end %>
+
+<br>
+<%= link_to "Voir la liste des listes", lists_path %>
+<%= link_to "Ajouter un nouveau bookmark", new_list_bookmark_path(@list) %>
+<% if @list.photo.attached? %>
+<div class="card-category"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 1300, width: 500 %>')"
+>
+  Cool article
+</div>
+<% end %>
